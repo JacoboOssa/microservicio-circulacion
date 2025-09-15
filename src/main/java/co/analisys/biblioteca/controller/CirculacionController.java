@@ -72,7 +72,7 @@ public class CirculacionController {
             @ApiResponse(responseCode = "403", description = "Acceso denegado (requiere ROLE_USER o ROLE_LIBRARIAN)", content = @Content)
     })
     @GetMapping("/prestamos")
-    @PreAuthorize("hasAnyRole('ROLE_LIBRARIAN', 'ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_LIBRARIAN')")
     public List<Prestamo> obtenerTodosPrestamos() {
         return circulacionService.obtenerTodosPrestamos();
     }
